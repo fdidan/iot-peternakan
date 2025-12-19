@@ -1,0 +1,12 @@
+# Credential files
+*.env
+*.key
+*.pem
+*.pfx
+credentials.json
+secrets.json
+config.json
+
+# Markdown files (except README)
+*.md
+!README.md
