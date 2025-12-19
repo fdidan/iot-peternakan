@@ -1,0 +1,4 @@
+flask
+paho-mqtt
+mysql-connector-python
+requests
