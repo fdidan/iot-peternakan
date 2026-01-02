@@ -36,7 +36,7 @@ def home():
     return jsonify({"status": "Server IoT Peternakan running"}), 200
 
 
-@app.route("/api/health", methods=["GET"])
+@app.route("/health", methods=["GET"])
 def health_check():
     """Check kesehatan server dan database"""
     conn = get_db_connection()
@@ -50,7 +50,7 @@ def health_check():
     }), 200
 
 
-@app.route("/api/sensor/latest", methods=["GET"])
+@app.route("/sensor/latest", methods=["GET"])
 def get_latest_sensor():
     """Ambil data sensor terbaru"""
     conn = get_db_connection()
@@ -72,7 +72,7 @@ def get_latest_sensor():
         return jsonify({"error": str(e)}), 500
 
 
-@app.route("/api/sensor/history", methods=["GET"])
+@app.route("/sensor/history", methods=["GET"])
 def get_sensor_history():
     """Ambil history data sensor"""
     limit = request.args.get("limit", 10, type=int)
@@ -94,7 +94,7 @@ def get_sensor_history():
         return jsonify({"error": str(e)}), 500
 
 
-@app.route("/api/notifications", methods=["GET"])
+@app.route("/notifications", methods=["GET"])
 def get_notifications():
     """Ambil history notifikasi"""
     limit = request.args.get("limit", 20, type=int)
@@ -116,7 +116,7 @@ def get_notifications():
         return jsonify({"error": str(e)}), 500
 
 
-@app.route("/api/device/actions", methods=["GET"])
+@app.route("/device/actions", methods=["GET"])
 def get_available_actions():
     """List action apa saja yang bisa dijalankan"""
     return jsonify({
@@ -131,7 +131,7 @@ def get_available_actions():
     }), 200
 
 
-@app.route("/api/device/action", methods=["POST"])
+@app.route("/device/action", methods=["POST"])
 def trigger_action():
     """Trigger action manual ke ESP32"""
     try:
